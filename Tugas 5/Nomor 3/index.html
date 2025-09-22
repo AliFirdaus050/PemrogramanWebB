@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Drop Down List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #eaf1f9, #d6e4f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            color: #34495e;
+        }
+
+        select {
+            padding: 10px;
+            margin: 5px 0 15px;
+            width: 100%;
+            border: 1px solid #ccd6e0;
+            border-radius: 6px;
+            background: #f9fbfd;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        select:focus {
+            border: 1px solid #4a90e2;
+            box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
+            background: #fff;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 12px 20px;
+            background: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #357ab7;
+            transform: scale(1.02);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 6px;
+        }   
+
+        .result.success {
+            background: #eafaf1;
+            color: #2c7a4b;
+            border: 1px solid #27ae60;
+        }
+
+        .result.error {
+            background: #fdecea;
+            color: #c0392b;
+            border: 1px solid #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pilih Produk</h2>
+
+        <label for="produk">Jenis Produk:</label>
+        <select id="produk" onchange="updateMerk()">
+            <option value="">Pilih Jenis Produk</option>
+            <option value="laptop">Laptop</option>
+            <option value="smartphone">Smartphone</option>
+            <option value="desktop">Desktop</option>
+        </select>
+
+        <label for="merk">Merk:</label>
+        <select id="merk">
+            <option value="">Pilih Merk</option>
+        </select>
+
+        <button onclick="submitPilihan()">OK</button>
+
+        <div class="result" id="hasil"></div>
+    </div>
+
+    <script>
+        const merkProduk = {
+            laptop: ["Asus", "Acer", "Lenovo", "HP", "Dell"],
+            smartphone: ["Samsung", "Xiaomi", "Oppo", "iPhone", "Vivo"],
+            desktop: ["Intel", "AMD", "MSI", "Asus", "Dell"]
+        };
+
+        function updateMerk() {
+            const produkSelect = document.getElementById("produk");
+            const merkSelect = document.getElementById("merk");
+            const selectedProduk = produkSelect.value;
+
+            merkSelect.innerHTML = '<option value="">Pilih Merk</option>';
+
+            if (selectedProduk && merkProduk[selectedProduk]) {
+                merkProduk[selectedProduk].forEach(merk => {
+                    const option = document.createElement("option");
+                    option.value = merk.toLowerCase();
+                    option.textContent = merk;
+                    merkSelect.appendChild(option);
+                });
+            }
+        }
+
+        function submitPilihan() {
+            const produk = document.getElementById("produk").value;
+            const merk = document.getElementById("merk").value;
+            const hasil = document.getElementById("hasil");
+
+            hasil.className = "result";
+
+            if (!produk) {
+                hasil.textContent = "⚠️ Silakan pilih jenis produk terlebih dahulu!";
+                hasil.classList.add("error");
+                return;
+            }
+            if (!merk) {
+                hasil.textContent = "⚠️ Silakan pilih merk produk terlebih dahulu!";
+                hasil.classList.add("error");
+                return;
+            }
+
+            hasil.textContent = "✅ Anda memilih: " + produk.charAt(0).toUpperCase() + produk.slice(1) + " - " + merk.charAt(0).toUpperCase() + merk.slice(1);
+            hasil.classList.add("success");
+        }
+    </script>
+</body>
+</html>

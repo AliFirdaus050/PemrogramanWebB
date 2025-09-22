@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Registrasi Mahasiswa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      margin-top: 100px;
+      background: #f4f4f9;
+      justify-content: center;
+      align-items: center;
+      
+    }
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    .suggestions {
+      border: 1px solid #ccc;
+      border-top: none;
+      max-height: 150px;
+      overflow-y: auto;
+      background: white;
+      position: absolute;
+      width: calc(100% - 42px);
+      z-index: 1000;
+      border-radius: 0 0 8px 8px;
+    }
+    .suggestion-item {
+      padding: 8px;
+      cursor: pointer;
+    }
+    .suggestion-item:hover {
+      background: #f0f0f0;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Form Registrasi Mahasiswa</h2>
+  <form>
+    <label for="nama">Nama Mahasiswa</label>
+    <div style="position: relative;">
+      <input type="text" id="nama" name="nama" placeholder="Ketik nama...">
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="contoh: nama@email.com">
+
+    <label for="jurusan">Jurusan</label>
+    <select id="jurusan" name="jurusan">
+      <option value="">-- Pilih Jurusan --</option>
+      <option value="TI">Teknik Informatika</option>
+      <option value="SI">Sistem Informasi</option>
+      <option value="MI">Manajemen Bisnis</option>
+      <option value="DKV">Desain Komunikasi Visual</option>
+      <option value="TI">Teknik Mesin</option>
+      <option value="TI">Teknik Industri</option>
+      <option value="TI">Teknik Fisika</option>
+      <option value="TI">Teknik Kimia</option>
+      <option value="TI">Teknik Sipil</option>
+    </select>
+
+    <button type="submit">Daftar</button>
+  </form>
+</div>
+
+<script>
+  const namaMahasiswa = [
+    "Andi Wijaya", "Budi Santoso", "Citra Lestari", "Dewi Kusuma", "Eko Prasetyo",
+    "Farhan Hidayat", "Gita Sari", "Hendra Gunawan", "Intan Permata", "Joko Susilo"
+  ];
+
+  const inputNama = document.getElementById("nama");
+  const suggestionsBox = document.getElementById("suggestions");
+
+  inputNama.addEventListener("input", function() {
+    const query = this.value.toLowerCase();
+    suggestionsBox.innerHTML = "";
+
+    if (query.length > 0) {
+      const filtered = namaMahasiswa.filter(nama =>
+        nama.toLowerCase().includes(query)
+      );
+
+      filtered.forEach(nama => {
+        const div = document.createElement("div");
+        div.classList.add("suggestion-item");
+        div.textContent = nama;
+        div.onclick = () => {
+          inputNama.value = nama;
+          suggestionsBox.innerHTML = "";
+        };
+        suggestionsBox.appendChild(div);
+      });
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (e.target !== inputNama) {
+      suggestionsBox.innerHTML = "";
+    }
+  });
+</script>
+
+</body>
+</html>

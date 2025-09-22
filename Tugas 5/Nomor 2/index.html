@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pencarian Kode Pos Indonesia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+    h2 {
+      color: #c62828;
+    }
+    .form-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+    select, input, button {
+      padding: 10px;
+      margin: 8px 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+    button {
+      background: #43a047;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2e7d32;
+    }
+    .result {
+      background: #e8f5e9;
+      padding: 15px;
+      border-left: 5px solid #43a047;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pencarian Kode Pos Indonesia</h2>
+  <div class="form-container">
+    <label for="provinsi">Provinsi</label>
+    <select id="provinsi">
+      <option value="">-- Pilih Provinsi --</option>
+      <option value="DKI Jakarta">DKI Jakarta</option>
+      <option value="Jawa Barat">Jawa Barat</option>
+      <option value="Jawa Tengah">Jawa Tengah</option>
+      <option value="Jawa Timur">Jawa Timur</option>
+      <option value="Bali">Bali</option>
+      <option value="DI Yogyakarta">DI Yogyakarta</option>
+    </select>
+
+    <label for="kota">Kota/Kabupaten</label>
+    <select id="kota">
+      <option value="">-- Pilih Kota/Kabupaten --</option>
+    </select>
+
+    <label for="kodepos">Masukkan Kode Pos</label>
+    <input type="text" id="kodepos" placeholder="Contoh: 60111">
+
+    <button onclick="cariKodePos()">Cari</button>
+  </div>
+
+  <div id="hasil"></div>
+
+  <script>
+    const dataKodePos = {
+      "DKI Jakarta": {
+        "Jakarta Pusat": {
+          "10110": { kelurahan: "Gambir", kecamatan: "Gambir" },
+          "10210": { kelurahan: "Menteng", kecamatan: "Menteng" },
+          "10310": { kelurahan: "Cikini", kecamatan: "Menteng" },
+          "10430": { kelurahan: "Kramat", kecamatan: "Senen" },
+          "10510": { kelurahan: "Cempaka Putih Timur", kecamatan: "Cempaka Putih" }
+        },
+        "Jakarta Selatan": {
+          "12120": { kelurahan: "Kebayoran Baru", kecamatan: "Kebayoran Baru" },
+          "12140": { kelurahan: "Senayan", kecamatan: "Kebayoran Baru" },
+          "12240": { kelurahan: "Pondok Pinang", kecamatan: "Kebayoran Lama" },
+          "12410": { kelurahan: "Cilandak Barat", kecamatan: "Cilandak" },
+          "12780": { kelurahan: "Pancoran", kecamatan: "Pancoran" }
+        }
+      },
+      "Jawa Barat": {
+        "Bandung": {
+          "40111": { kelurahan: "Cihapit", kecamatan: "Bandung Wetan" },
+          "40115": { kelurahan: "Merdeka", kecamatan: "Sumur Bandung" },
+          "40291": { kelurahan: "Margacinta", kecamatan: "Buah Batu" },
+          "40293": { kelurahan: "Batununggal", kecamatan: "Batununggal" },
+          "40391": { kelurahan: "Cibiru Wetan", kecamatan: "Cibiru" }
+        }
+      },
+      "Jawa Tengah": {
+        "Semarang": {
+          "50139": { kelurahan: "Pleburan", kecamatan: "Semarang Selatan" },
+          "50141": { kelurahan: "Mugassari", kecamatan: "Semarang Selatan" },
+          "50241": { kelurahan: "Tembalang", kecamatan: "Tembalang" },
+          "50271": { kelurahan: "Ngaliyan", kecamatan: "Ngaliyan" },
+          "50275": { kelurahan: "Manyaran", kecamatan: "Semarang Barat" }
+        }
+      },
+      "Jawa Timur": {
+        "Surabaya": {
+          "60111": { kelurahan: "Keputih", kecamatan: "Sukolilo" },
+          "60113": { kelurahan: "Gebang Putih", kecamatan: "Sukolilo" },
+          "60262": { kelurahan: "Tegalsari", kecamatan: "Tegalsari" },
+          "60293": { kelurahan: "Wonokromo", kecamatan: "Wonokromo" },
+          "60361": { kelurahan: "Lakarsantri", kecamatan: "Lakarsantri" }
+        },
+        "Malang": {
+          "65111": { kelurahan: "Klojen", kecamatan: "Klojen" },
+          "65112": { kelurahan: "Kauman", kecamatan: "Klojen" },
+          "65115": { kelurahan: "Gadingkasri", kecamatan: "Klojen" },
+          "65141": { kelurahan: "Lowokwaru", kecamatan: "Lowokwaru" },
+          "65142": { kelurahan: "Dinoyo", kecamatan: "Lowokwaru" }
+        }
+      },
+      "Bali": {
+        "Denpasar": {
+          "80111": { kelurahan: "Dangin Puri", kecamatan: "Denpasar Timur" },
+          "80112": { kelurahan: "Sumerta", kecamatan: "Denpasar Timur" },
+          "80227": { kelurahan: "Sanur", kecamatan: "Denpasar Selatan" },
+          "80234": { kelurahan: "Panjer", kecamatan: "Denpasar Selatan" },
+          "80361": { kelurahan: "Kerobokan", kecamatan: "Kuta Utara" }
+        }
+      },
+      "DI Yogyakarta": {
+        "Yogyakarta": {
+          "55122": { kelurahan: "Brontokusuman", kecamatan: "Mergangsan" },
+          "55153": { kelurahan: "Wirogunan", kecamatan: "Mergangsan" },
+          "55223": { kelurahan: "Ngampilan", kecamatan: "Ngampilan" },
+          "55225": { kelurahan: "Notoprajan", kecamatan: "Ngampilan" },
+          "55281": { kelurahan: "Caturtunggal", kecamatan: "Depok" }
+        }
+      }
+    };
+
+    const provinsiSelect = document.getElementById("provinsi");
+    const kotaSelect = document.getElementById("kota");
+    const hasilDiv = document.getElementById("hasil");
+
+    // Update pilihan kota saat provinsi dipilih
+    provinsiSelect.addEventListener("change", function() {
+      const provinsi = this.value;
+      kotaSelect.innerHTML = "<option value=''>-- Pilih Kota/Kabupaten --</option>";
+
+      if (provinsi && dataKodePos[provinsi]) {
+        Object.keys(dataKodePos[provinsi]).forEach(kota => {
+          kotaSelect.innerHTML += `<option value="${kota}">${kota}</option>`;
+        });
+      }
+    });
+
+    // Fungsi pencarian kode pos
+    function cariKodePos() {
+      const provinsi = provinsiSelect.value;
+      const kota = kotaSelect.value;
+      const kodepos = document.getElementById("kodepos").value.trim();
+
+      if (provinsi && kota && kodepos) {
+        const data = dataKodePos[provinsi]?.[kota]?.[kodepos];
+        if (data) {
+          hasilDiv.innerHTML = `
+            <div class="result">
+              Kode pos <strong>${kodepos}</strong> untuk daerah 
+              Kelurahan <strong>${data.kelurahan}</strong>, 
+              Kecamatan <strong>${data.kecamatan}</strong>.
+            </div>
+          `;
+        } else {
+          hasilDiv.innerHTML = `
+            <div class="result" style="background:#ffebee; border-color:#c62828; color:#c62828;">
+              Data tidak ditemukan.
+            </div>
+          `;
+        }
+      } else {
+        hasilDiv.innerHTML = `
+          <div class="result" style="background:#fff3cd; border-color:#ff9800; color:#e65100;">
+            Silakan lengkapi semua input terlebih dahulu.
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
