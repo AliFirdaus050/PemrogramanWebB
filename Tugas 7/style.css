@@ -105,4 +105,30 @@ button:active {
     color: #28a745; 
     font-weight: 500;
     font-size: 1.05em;
+
+}
+
+.error-message {
+    color: #dc3545; 
+    font-size: 0.9em;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.input-error {
+    border-color: #dc3545 !important; 
+}
+
+.fa-spin {
+    animation: fa-spin 1s infinite linear;
+}
+
+@keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
