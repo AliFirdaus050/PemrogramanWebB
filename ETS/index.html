@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolanan Bocah - Sewa Mainan Anak Surabaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <nav>
+        <div class="logo">Dolanan Bocah</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#manfaat">Manfaat</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#testimoni">Testimoni</a></li>
+            <li><a href="#pemesanan">Pesan</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bermain Ceria & Cerdas Tanpa Boros</h1>
+            <p>Sewa mainan anak premium di Surabaya. Solusi hemat untuk mendukung perkembangan si kecil.</p>
+        </div>
+    </section>
+    
+    <section id="manfaat" class="benefits">
+        <h2 class="section-title">Kenapa Harus Sewa di Sini?</h2>
+        <div class="benefits-container">
+            <div class="benefit-card">
+                <i class="fas fa-wallet"></i>
+                <h3>Hemat Biaya</h3>
+                <p>Akses berbagai mainan mahal tanpa harus membeli. Hemat dan lebih cerdas!</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Stimulasi Perkembangan</h3>
+                <p>Berikan variasi mainan edukatif untuk mendukung tumbuh kembang anak Anda.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-pump-soap"></i>
+                <h3>Praktis & Higienis</h3>
+                <p>Mainan bersih, aman, dan diantar langsung ke rumah Anda. Tidak ada lagi rumah berantakan!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="produk" class="produk">
+        <h2 class="section-title">Kategori Mainan Populer</h2>
+        <div class="produk-container">
+            <button class="scroll-btn left" onclick="scrollProduk(-1)">&#10094;</button>
+            <div class="produk-scroll" id="produk-gallery">
+                <div class="produk-card">
+                    <img src="foto/edukasi.jpg" alt="Mainan Edukasi">
+                    <div class="produk-card-content"><h4>Mainan Edukasi</h4><p>Mulai Rp 40.000/minggu</p></div>
+                </div>
+                <div class="produk-card">
+                    <img src="Foto/boneka.jpg" alt="Boneka">
+                    <div class="produk-card-content"><h4>Boneka & Action Figure</h4><p>Mulai Rp 75.000/minggu</p></div>
+                </div>
+                <div class="produk-card">
+                    <img src="Foto/alatmusikbiru.jpg" alt="Alat Musik">
+                    <div class="produk-card-content"><h4>Alat Musik</h4><p>Mulai Rp 50.000/minggu</p></div>
+                </div>
+                <div class="produk-card">
+                    <img src="Foto/sepeda.jpg" alt="Sepeda Anak">
+                    <div class="produk-card-content"><h4>Skuter & Sepeda</h4><p>Mulai Rp 100.000/minggu</p></div>
+                </div>
+                <div class="produk-card">
+                    <img src="Foto/playground.jpg" alt="Playground">
+                    <div class="produk-card-content"><h4>Playground Mini</h4><p>Mulai Rp 150.000/minggu</p></div>
+                </div>
+            </div>
+            <button class="scroll-btn right" onclick="scrollProduk(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section class="promo">
+        <h2>Promo Pengguna Baru!</h2>
+        <p>Dapatkan diskon 15% untuk penyewaan pertama Anda. Pesan sekarang!</p>
+    </section>
+
+    <section id="testimoni" class="testimoni">
+        <h2 class="section-title">Apa Kata Para Bunda?</h2>
+        <div class="testimoni-container">
+            <div class="testimoni-card">
+                <p>"Anakku jadi nggak gampang bosan karena mainannya ganti terus. Pelayanannya juga cepat dan ramah. Recommended!"</p>
+                <h4>- Bunda Rina, Surabaya</h4>
+            </div>
+            <div class="testimoni-card">
+                <p>"Sangat membantu menghemat pengeluaran. Mainannya bersih dan berkualitas. Pasti akan sewa lagi di Ceria Play."</p>
+                <h4>- Bunda Siska, Sidoarjo</h4>
+            </div>
+            <div class="testimoni-card">
+                <p>"Anakku jadi engga kecanduan gadget. Produknya berfariatif, harganya juga cukup terjangkau karena sering ada promo."</p>
+                <h4>- Bunda Agnez, Malang</h4>
+            </div>
+            <div class="testimoni-card">
+                <p>"Tokonya sangat recommended. Adminnya fast respon, pelayanannya sangat ramah, produknya juga berkualitas."</p>
+                <h4>- Bunda Tokyo, Malang</h4>
+            </div>
+            <div class="testimoni-card">
+                <p>"Mainannya cukup lengkap, pilihannya sangat banyak. Anak saya jadi ga gampang bosan karena gonta ganti mainan."</p>
+                <h4>- Bunda Raquel, Surabaya</h4>
+            </div>
+            <div class="testimoni-card">
+                <p>"Mainannya bagus-bagus, tidak hanya sekedar mainan, ada juga yang bisa mengasah otak anak-anak sehingga mereka dapat bermain sambil belajar."</p>
+                <h4>- Bunda Sinta, Gresik</h4>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pemesanan" class="pemesanan">
+        <div class="form-box">
+            <h2>Formulir Pemesanan</h2>
+            <form>
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" name="nama" required placeholder="Masukkan nama Anda">
+
+                <label for="telepon">No. Telepon (WhatsApp)</label>
+                <input type="tel" id="telepon" name="telepon" required placeholder="Contoh: 08123456789">
+
+                <label for="mainan">Pilih Kategori Mainan</label>
+                <select id="mainan" name="mainan" required>
+                    <option value="">-- Pilih Kategori --</option>
+                    <option value="Mainan Edukasi">Mainan Edukasi</option>
+                    <option value="Boneka">Boneka & Action Figure</option>
+                    <option value="Alat Musik">Alat Musik</option>
+                    <option value="Sepeda Anak">Skuter & Sepeda</option>
+                    <option value="Playground">Playground</option>
+                </select>
+
+                <label for="tanggal">Tanggal Mulai Sewa</label>
+                <input type="date" id="tanggal" name="tanggal" required>
+
+                <button type="submit">Kirim Pesanan</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <h2 class="section-title">Yang Sering Ditanyakan (FAQ)</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    Bagaimana cara menyewa mainan di Dolanan Bocah?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sangat mudah! Cukup isi formulir pemesanan di atas, dan tim kami akan segera menghubungi Anda melalui WhatsApp untuk konfirmasi ketersediaan dan jadwal pengantaran.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Apakah mainan dijamin bersih dan aman?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tentu. Kebersihan adalah prioritas kami. Semua mainan dicuci dan didesinfeksi secara profesional sebelum dan sesudah disewa menggunakan cairan yang aman untuk anak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dolanan Bocah - Semua Hak Dilindungi</p>
+    </footer>
+
+    <script>
+        function scrollProduk(direction) {
+            const gallery = document.getElementById("produk-gallery");
+            const scrollAmount = 320;
+            gallery.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const answer = item.querySelector('.faq-answer');
+                    const isActive = item.classList.contains('active');
+
+                    document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                        activeItem.classList.remove('active');
+                        activeItem.querySelector('.faq-answer').style.maxHeight = null;
+                    });
+                    
+                    if (!isActive) {
+                        item.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
