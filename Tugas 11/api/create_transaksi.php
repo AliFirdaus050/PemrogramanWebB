@@ -11,7 +11,7 @@ if (
     !empty($data->harga_satuan) &&
     !empty($data->masuk) &&
     !empty($data->keluar)
-) {
+    ) {
     try {
         $harga_total = (int)$data->berat * (int)$data->harga_satuan;
 
@@ -48,4 +48,5 @@ if (
     http_response_code(400);
     echo json_encode(array("message" => "Data tidak lengkap. Semua field wajib diisi."));
 }
+
 ?>
