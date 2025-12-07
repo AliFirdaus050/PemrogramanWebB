@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+.body-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.kotak_login {
+    background: white;
+    width: 350px;
+    padding: 40px;
+    border-radius: 5px; 
+    border: 1px solid #333; 
+    box-shadow: none; 
+}
+
+.tulisan_login {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form_login {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    transition: 0.3s;
+}
+
+.form_login:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.tombol_login {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tombol_login:hover {
+    background: #764ba2;
+}
+
+.alert {
+    background: #ffcccc;
+    color: #cc0000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ff9999;
+}
+
+.navbar {
+    padding: 15px 50px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar h1 {
+    font-size: 20px;
+}
+
+.btn-logout {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background: white;
+    color: #333;
+}
+
+.container {
+    padding: 50px;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: inline-block;
+    max-width: 600px;
+}
+
+.welcome-text {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.theme-admin .navbar { background: #d32f2f; }
+.theme-admin .role-badge { background: #d32f2f; }
+.theme-admin h2 { color: #d32f2f; }
+
+.theme-pegawai .navbar { background: #1976d2; }
+.theme-pegawai .role-badge { background: #1976d2; }
+.theme-pegawai h2 { color: #1976d2; }
+
+.theme-pengurus .navbar { background: #00796b; }
+.theme-pengurus .role-badge { background: #00796b; }
+.theme-pengurus h2 { color: #00796b; }
